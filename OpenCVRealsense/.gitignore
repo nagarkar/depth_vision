@@ -1,0 +1,4 @@
+detections/
+test-output/
+venv/
+/**/__pycache__/*
