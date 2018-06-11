@@ -1,9 +1,15 @@
+#!~/.virtualenvs/cv/bin/python
 # This has been copied verbatim from https://goo.gl/t6KUWz
 # Also look at https://github.com/miguelgrinberg/flask-video-streaming for alternative streaming approaches
 # If this test works, you'll see a window with the color and depth images.
+
+# Usage: sudo python (3.5) <program name> ; TODO: Do this without sudo
+# Note, read Readme file first.
+
 import pyrealsense2 as rs
 import numpy as np
 import cv2
+import time
 
 # Configure depth and color streams
 pipeline = rs.pipeline()
@@ -13,7 +19,8 @@ config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
 
 # Start streaming
 pipeline.start(config)
-
+framecount = 0
+cv2.namedWindow('RealSense', cv2.WINDOW_AUTOSIZE)
 try:
     while True:
 
@@ -35,11 +42,11 @@ try:
         images = np.hstack((color_image, depth_colormap))
 
         # Show images
-        cv2.namedWindow('RealSense', cv2.WINDOW_AUTOSIZE)
         cv2.imshow('RealSense', images)
         cv2.waitKey(1)
-
+        framecount = framecount + 1
 finally:
 
     # Stop streaming
     pipeline.stop()
+    print("Framecount:%s" %(framecount))
