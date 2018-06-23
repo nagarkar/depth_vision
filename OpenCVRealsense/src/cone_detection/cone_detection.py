@@ -15,55 +15,53 @@ def copy_blank(img):
 # contour[1][0] is the second bounary point.
 # contour[1][0][1] is the 'y' coordinate of the second bounary point.
 # Convex Hull passed in is a contour.
-def hull_pointing_up(hull):
+def hull_pointing_up(hull, min_aspect_ratio=0.8, max_top_bottom_width_ratio=0.75):
     x, y, w, h = cv2.boundingRect(hull)  # (x,y): top-left coordinate
     aspect_ratio = float(w) / h
-    if aspect_ratio > 0.8:
+    if aspect_ratio > min_aspect_ratio:
         return False, [], [];
 
-    yCenter = (y + h) / 2.0
-    pointsAboveCenter = []
-    pointsBelowCenter = []
+    c_y = (y + h) / 2.0
+    points_above_center = []
+    points_below_center = []
     for point in hull:
         y = point[0][1]
-        if y < yCenter:
-            pointsAboveCenter.append(point)
+        if y < c_y:
+            points_above_center.append(point)
         else:
-            pointsBelowCenter.append(point)
-    leftMostXBelowCenter = hull[0][0][0];
-    rightMostXBelowCenter = hull[0][0][0];
-    for point in pointsBelowCenter:
+            points_below_center.append(point)
+    left_most_x_below_center = hull[0][0][0];
+    right_most_x_below_center = hull[0][0][0];
+    for point in points_below_center:
         x = point[0][0]
-        if (x < leftMostXBelowCenter):
-            leftMostXBelowCenter = x
-            continue
-        if (x > rightMostXBelowCenter):
-            rightMostXBelowCenter = x
-            continue
+        if x < left_most_x_below_center:
+            left_most_x_below_center = x
+        else:
+            right_most_x_below_center = x
 
-    for point in pointsAboveCenter:
+    for point in points_above_center:
         x = point[0][0]
-        if (x < leftMostXBelowCenter or x > rightMostXBelowCenter):
-            return False, pointsAboveCenter, pointsBelowCenter;
+        if x < left_most_x_below_center or x > right_most_x_below_center:
+            return False, points_above_center, points_below_center
 
-    leftMostXAboveCenter = hull[0][0][0];
-    rightMostXAboveCenter = hull[0][0][0];
-    for point in pointsAboveCenter:
+    left_most_x_above_center = hull[0][0][0]
+    right_most_x_above_center = hull[0][0][0]
+    for point in points_above_center:
         x = point[0][0]
-        if (x < leftMostXAboveCenter):
-            leftMostXAboveCenter = x
-            continue
-        if (x > rightMostXAboveCenter):
-            rightMostXAboveCenter = x
+        if x < left_most_x_above_center:
+            left_most_x_above_center = x
+        else:
+            right_most_x_above_center = x
             continue
 
-    aboveWidth = rightMostXAboveCenter - leftMostXAboveCenter
-    belowWidth = rightMostXBelowCenter - leftMostXBelowCenter
-    shape_ratio = aboveWidth / belowWidth;
-    if shape_ratio > 0.1:
-        return False, pointsAboveCenter, pointsBelowCenter;
+    # Find widths and avoid zero pixel widths
+    top_width = max(1, abs(right_most_x_above_center - left_most_x_above_center))
+    bottom_width = max(1, abs(right_most_x_below_center - left_most_x_below_center))
+    shape_ratio = top_width / bottom_width
+    if shape_ratio > max_top_bottom_width_ratio:
+        return False, points_above_center, points_below_center
 
-    return True, pointsAboveCenter, pointsBelowCenter;
+    return True, points_above_center, points_below_center
 
 
 def imshow_next(img, titleText):
@@ -79,8 +77,8 @@ def imshow_next(img, titleText):
         # title.set_fontsize(100)
     else:
         fig, ax = plt.subplots(figsize=(100, 100))
-        ax.imshow(img, interpolation='nearest');
-        ax.set_title(titleText);
+        ax.imshow(img, interpolation='nearest')
+        ax.set_title(titleText)
         # plt.show();
 
 
@@ -119,8 +117,10 @@ def generate_canny(img, do_show_images=False):
 
     # threshold on low range of HSV red
     img_thresh_low = cv2.inRange(hsv_img, np.array([0, 135, 135]), np.array([15, 255, 255]))
+    #img_thresh_low = cv2.inRange(hsv_img, np.array([0, 70, 50]), np.array([15, 255, 255]))
     # threshold on high range of HSV red
     img_thresh_high = cv2.inRange(hsv_img, np.array([159, 135, 135]), np.array([179, 255, 255]))
+    #img_thresh_high = cv2.inRange(hsv_img, np.array([159, 70, 50]), np.array([179, 255, 255]))
 
     # combine low range red thresh and high range red thresh
     img_thresh = cv2.bitwise_or(img_thresh_low, img_thresh_high)
@@ -156,70 +156,64 @@ def generate_canny(img, do_show_images=False):
     return img_canny
 
 
-def get_cones(img_canny, do_show_images=False, generate_images=False):
+def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=False):
     start_time = current_milli_time()
     if generate_images:
-        show_images(do_show_images);
-        img_contours = copy_blank(img_canny);
-        img_all_convex_hulls = copy_blank(img_canny);
-        img_all_convex_3to10_hulls = copy_blank(img_canny);
-        img_traffic_cones = copy_blank(img_canny);
-        img_traffic_cones_overlaps_removed = copy_blank(img_canny);
+        show_images(do_show_images)
+        img_contours = copy_blank(base_img)
+        img_all_convex_hulls = copy_blank(base_img)
+        img_all_convex_3to10_hulls = copy_blank(base_img)
+        img_traffic_cones = copy_blank(base_img)
+        img_traffic_cones_overlaps_removed = copy_blank(base_img)
 
     # Find contours: https://goo.gl/FkomSt
     temp_img, contours, hierarchy = cv2.findContours(img_canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Drawcontours
+    # Draw Contours
     # cv2.drawContours(img_canny, contours, -1, (0,255,0), 3)
     # imshow_next(img_canny, ax, "Contours")
 
     list_traffic_cones = []
-    for cnt in contours:
+    list_of_areas = []
+
+    min_pix_area = 200
+    approx_poly_dp_epsilon = 2
+
+    for contour in contours:
         # epsilon = 0.1 * cv2.arcLength(cnt, True)
-        approx = cv2.approxPolyDP(cnt, 3, True)
-        if generate_images: cv2.drawContours(img_contours, [approx], 0, (255, 255, 100), 3)
+        contour = cv2.approxPolyDP(contour, approx_poly_dp_epsilon, True)
+        if generate_images:
+            cv2.drawContours(img_contours, [contour], 0, (255, 255, 100), 3)
 
-        hull = cv2.convexHull(cnt)
-        if generate_images: cv2.drawContours(img_all_convex_hulls, [hull], 0, (0, 255, 255), 3)
+        contour = cv2.convexHull(contour)
+        if generate_images:
+            cv2.drawContours(img_all_convex_hulls, [contour], 0, (0, 255, 255), 3)
 
-        if hull.size >= 10:
-            # if convex hull has at least 3 and less than 10 points,
-            # size returns double of actual points (2 coordinates counted for each point)
-            if generate_images: cv2.drawContours(img_all_convex_3to10_hulls, [hull], 0, (0, 255, 255), 3)
+        area = cv2.contourArea(contour, False)
+        list_of_areas.append(area)
 
-            isUp, _tmp, _tmp2 = hull_pointing_up(hull);
-            (x, y), (MA, ma), angle = cv2.fitEllipse(hull)
-            if isUp:  # and (angle < 10):
-                # if (1 == 1):
-                M = cv2.moments(hull)
-                cX = int(M["m10"] / M["m00"])
-                cY = int(M["m01"] / M["m00"])
+        if area < min_pix_area or 3 > contour.size > 10:
+            continue
 
-                font = cv2.FONT_HERSHEY_SIMPLEX
-                sizelocation = (cX - 20, cY - 20)
-                anglelocation = (cX - 20, cY)
-                fontScale = .5
-                fontColor = (255, 255, 255)
-                lineType = 1
-                lineType2 = cv2.LINE_AA
+        # if convex hull has at least 3 and less than 10 points,
+        # size returns double of actual points (2 coordinates counted for each point)
+        if generate_images:
+            cv2.drawContours(img_all_convex_3to10_hulls, [contour], 0, (0, 255, 255), 3)
 
-                rect = cv2.minAreaRect(hull)
-                box = cv2.boxPoints(rect)
-                box = np.int0(box)
+        pointing_up, _tmp, _tmp2 = hull_pointing_up(contour)
+        # (x, y), (MA, ma), angle = cv2.fitEllipse(hull)
+        if not pointing_up:  # and (angle < 10):
+            continue
+        # if (1 == 1):
 
-                if generate_images:
-                    img_to_draw_on = img_traffic_cones
-                else:
-                    img_to_draw_on = img_canny
+        if generate_images:
+            img_to_draw_on = img_traffic_cones
+        else:
+            img_to_draw_on = img_canny
 
-                cv2.drawContours(img_to_draw_on, [box], 0, (255, 255, 255), 2)
-                cv2.drawContours(img_to_draw_on, [hull], 0, (255, 255, 255), 2)
-                cv2.putText(img_to_draw_on, str(hull.size), sizelocation,
-                            font, fontScale, fontColor, lineType, lineType2)
-                cv2.putText(img_to_draw_on, str(angle), anglelocation,
-                            font, fontScale, fontColor, lineType, lineType2)
+        cv2.drawContours(img_to_draw_on, [contour], 0, (255, 255, 255), 2)
 
-                list_traffic_cones.append(hull)
+        list_traffic_cones.append(contour)
 
     if generate_images:
         imshow_next(img_contours, "Contours")
@@ -234,7 +228,8 @@ def get_cones(img_canny, do_show_images=False, generate_images=False):
     #    drawGreenDotAtConeCenter(trafficCone, img_traffic_cones_overlaps_removed)
 
     # Fix spacing, make images look good
-    if generate_images: plt.tight_layout()
+    if generate_images:
+        plt.tight_layout()
 
     end_time = current_milli_time()
     if do_show_images:
