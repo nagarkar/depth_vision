@@ -2,10 +2,11 @@
 # This has been copied verbatim from https://goo.gl/t6KUWz
 # Also look at https://github.com/miguelgrinberg/flask-video-streaming for alternative streaming approaches
 # If this test works, you'll see a window with the color and depth images.
-import pyrealsense2 as rs
+
+# Usage: sudo python (3.5) <program name> ; TODO: Do this without sudo
+# Note, read Readme file first.
+
 import numpy as np
-import cv2
-import time
 from cone_detection.utilities import *
 
 # Configure depth and color streams
@@ -22,7 +23,6 @@ try:
     while True:
 
         # Wait for a coherent pair of frames: depth and color
-        #time.sleep(1);
         frames = pipeline.wait_for_frames()
         depth_frame = frames.get_depth_frame()
         color_frame = frames.get_color_frame()
@@ -42,7 +42,6 @@ try:
         # Show images
         cv2.imshow('RealSense', images)
         cv2.waitKey(1)
-	#print(".")
         framecount = framecount + 1
 finally:
 

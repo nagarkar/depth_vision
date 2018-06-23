@@ -1,0 +1,13 @@
+To run these examples, you will need to sudo.
+
+# Switch shell as root
+sudo -s 
+# If you have a venv:
+$ source activate (precise location of activate deepnds on your venv)
+
+# Assuming pyrealsense2.so and librealsense2.so are in /usr/local/lib:
+$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+# Run using python3
+$ python realsense_basic_test.py
+
