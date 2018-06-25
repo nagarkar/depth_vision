@@ -4,8 +4,9 @@
 #  - I had to also install windows sdk 8.1 using the visual studio installer
 #  - Make sure you pick a 64 bit visual studio option in cmake-gui
 
-from my_realsense.my_realsense import *
 import unittest
+
+from my_realsense.my_realsense import *
 
 
 class RealsenseBasicTests(unittest.TestCase):
@@ -51,7 +52,7 @@ class RealsenseBasicTests(unittest.TestCase):
         pipeline = rs.pipeline()
         self.assertIsNotNone(pipeline)
         pipeline.start(config)
-        get_option_data(pipeline.get_active_profile())
+        print_option_data(pipeline.get_active_profile())
 
 
 if __name__ == '__main__':

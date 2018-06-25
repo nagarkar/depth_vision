@@ -1,4 +1,6 @@
 detections/
 test-output/
 venv/
+experiments/
 /**/__pycache__/*
+/**/*.bak

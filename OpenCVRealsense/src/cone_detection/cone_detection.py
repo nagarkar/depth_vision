@@ -1,4 +1,3 @@
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -103,60 +102,62 @@ def show_images(show, ax_show=False):
 
 # print('Load and show an image')
 
-def generate_canny(img, do_show_images=False):
+# Assume input image is in BGR format
+def generate_canny(img, do_show_images=False, do_thresholding=True, do_erode=2, do_dilate=2, do_blur=11):
+
     start_time = current_milli_time()
     show_images(do_show_images, False)
 
-    # Default mode for images in python is BGR, imshow from matplotlib uses RGB
-    rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # imshow_next(RGB_img, "RGB")
-
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    filtered_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # combine low range red thresh and high range red thresh
     # imshow_next(hsv_img, "HSV")
 
-    # threshold on low range of HSV red
-    img_thresh_low = cv2.inRange(hsv_img, np.array([0, 135, 135]), np.array([15, 255, 255]))
-    #img_thresh_low = cv2.inRange(hsv_img, np.array([0, 70, 50]), np.array([15, 255, 255]))
-    # threshold on high range of HSV red
-    img_thresh_high = cv2.inRange(hsv_img, np.array([159, 135, 135]), np.array([179, 255, 255]))
-    #img_thresh_high = cv2.inRange(hsv_img, np.array([159, 70, 50]), np.array([179, 255, 255]))
+    if do_thresholding:
+        # threshold on low range of HSV red
+        img_thresh_low = cv2.inRange(filtered_img, np.array([0, 135, 135]), np.array([15, 255, 255]))
+        # img_thresh_low = cv2.inRange(hsv_img, np.array([0, 70, 50]), np.array([15, 255, 255]))
+        # threshold on high range of HSV red
+        img_thresh_high = cv2.inRange(filtered_img, np.array([159, 135, 135]), np.array([179, 255, 255]))
+        # img_thresh_high = cv2.inRange(hsv_img, np.array([159, 70, 50]), np.array([179, 255, 255]))
 
-    # combine low range red thresh and high range red thresh
-    img_thresh = cv2.bitwise_or(img_thresh_low, img_thresh_high)
-    # imshow_next(img_thresh,"Thresholded")
+        # combine low range red thresh and high range red thresh
+        filtered_img = cv2.bitwise_or(img_thresh_low, img_thresh_high)
+        # imshow_next(img_thresh,"Thresholded")
 
     # Default kernel
     kernel = np.ones((3, 3), np.uint8)
 
     # Erosion erodes boundaries of the foreground object, diminishes it's features: https://goo.gl/6y6DcR
-    img_eroded = cv2.erode(img_thresh, kernel, iterations=1)
-    imshow_next(img_eroded, "Eroded")
+    if do_erode > 0:
+        filtered_img = cv2.erode(filtered_img, kernel, iterations=do_erode)
+        # imshow_next(filtered_img, "Eroded")
 
     # Increases the object area, accentuate image: https://goo.gl/6y6DcR
-    img_dilated = cv2.dilate(img_eroded, kernel, iterations=1)
-    imshow_next(img_dilated, "Dilated")
+    if do_dilate > 0:
+        filtered_img = cv2.dilate(filtered_img, kernel, iterations=do_dilate)
+        # imshow_next(filtered_img, "Dilated")
 
-    # cv2.smoothGaussian(img_thresh, 3)
-    img_gaussian_blur = cv2.GaussianBlur(img_dilated, (3, 3), sigmaX=0)
-    imshow_next(img_gaussian_blur, "Gaussian Smooth")
+    if do_blur > 0:
+        filtered_img = cv2.medianBlur(filtered_img, do_blur)
+        # filtered_img = cv2.GaussianBlur(filtered_img, (do_blur, do_blur), sigmaX=0)
+        # imshow_next(filtered_img, "Gaussian Smooth")
 
-    img_canny = cv2.Canny(img_gaussian_blur, 160, 80)
-    imshow_next(img_canny, "Canny")
+    filtered_img = cv2.Canny(filtered_img, 160, 80)
+    # imshow_next(filtered_img, "Canny")
 
     # Fix spacing, make images look good
-    plt.tight_layout()
+    # plt.tight_layout()
 
-    end_time = current_milli_time()
     if do_show_images:
+        end_time = current_milli_time()
         print("End  Time: %s" % end_time)
-
-    if do_show_images:
         print("Elapsed: %sms" % (end_time - start_time))
-    return img_canny
+
+    return filtered_img
 
 
-def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=False):
+def get_cones(img_canny, do_polyapprox=True, base_img=None, do_show_images=False, generate_images=False,
+              check_countour_size=True, check_pixel_area=True):
     start_time = current_milli_time()
     if generate_images:
         show_images(do_show_images)
@@ -181,9 +182,10 @@ def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=Fa
 
     for contour in contours:
         # epsilon = 0.1 * cv2.arcLength(cnt, True)
-        contour = cv2.approxPolyDP(contour, approx_poly_dp_epsilon, True)
-        if generate_images:
-            cv2.drawContours(img_contours, [contour], 0, (255, 255, 100), 3)
+        if do_polyapprox:
+            contour = cv2.approxPolyDP(contour, approx_poly_dp_epsilon, True)
+            if generate_images:
+                cv2.drawContours(img_contours, [contour], 0, (255, 255, 100), 3)
 
         contour = cv2.convexHull(contour)
         if generate_images:
@@ -192,7 +194,10 @@ def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=Fa
         area = cv2.contourArea(contour, False)
         list_of_areas.append(area)
 
-        if area < min_pix_area or 3 > contour.size > 10:
+        if check_countour_size and 3 < contour.size < 10:
+            continue
+
+        if check_pixel_area and area < min_pix_area:
             continue
 
         # if convex hull has at least 3 and less than 10 points,
@@ -213,7 +218,8 @@ def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=Fa
 
         cv2.drawContours(img_to_draw_on, [contour], 0, (255, 255, 255), 2)
 
-        list_traffic_cones.append(contour)
+        if contour is not None:
+            list_traffic_cones.append(contour)
 
     if generate_images:
         imshow_next(img_contours, "Contours")
@@ -239,3 +245,13 @@ def get_cones(img_canny, base_img=None, do_show_images=False, generate_images=Fa
         return list_traffic_cones, img_traffic_cones
     else:
         return list_traffic_cones, None
+
+
+def imprint_cone(cone, image):
+    cv2.drawContours(image, [cone], 0, (255, 255, 255), 2)
+
+
+def imprint_value(c_row, c_col, image, label, value, line_no):
+    line = (c_row - 20 * (line_no - 1), c_col - 20 * (line_no - 1))
+    put_text_with_defaults(image, '%s:(%s)' % (label, value), line, color=cv2_color_bgr_black,
+                           font_scale=0.3)

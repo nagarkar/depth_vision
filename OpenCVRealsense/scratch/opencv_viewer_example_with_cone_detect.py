@@ -2,11 +2,6 @@
 # This has been copied verbatim from https://goo.gl/t6KUWz
 # Also look at https://github.com/miguelgrinberg/flask-video-streaming for alternative streaming approaches
 # If this test works, you'll see a window with the color and depth images.
-import pyrealsense2 as rs
-import numpy as np
-import cv2
-import time
-from cone_detection.utilities import *
 from cone_detection.cone_detection import *
 from my_realsense.my_realsense import  *
 
@@ -16,17 +11,20 @@ width = 640
 height = 480
 
 # Min and max areas based on a test cone of height 20cm and width 10 cm.
-min_area_cm2 = 100
+min_area_cm2 = 30
 max_area_cm2 = 150
 
 # Configure depth and color streams
-pipeline = rs.pipeline()
-config = rs.config()
-config.enable_stream(rs.stream.depth, width, height, rs.format.z16, fps)
-config.enable_stream(rs.stream.color, width, height, rs.format.bgr8, fps)
+# pipeline = start_pipeline(advanced_mode=True, width=width, height=height, fps=fps, preset_file='../configurations/HighResHighAccuracyPreset.json')
+pipeline = start_pipeline(advanced_mode=True, width=width, height=height, fps=fps,
+                          preset_file='../configurations/HighDensityPreset.json')
+# pipeline = rs.pipeline()
+# config = rs.config()
+# config.enable_stream(rs.stream.depth, width, height, rs.format.z16, fps)
+# config.enable_stream(rs.stream.color, width, height, rs.format.bgr8, fps)
 
 # Start streaming
-pipeline.start(config)
+# pipeline.start(config)
 framecount = 0
 cv2.namedWindow('RealSense', cv2.WINDOW_AUTOSIZE)
 try:
@@ -53,32 +51,21 @@ try:
         list_of_cones = detect_once(color_image)
 
         for cone in list_of_cones:
-            c_row, c_col = get_centroid(cone)
-            c_row = min(c_row, height - 1)
-            c_col = min(c_col, width - 1)
+            c_row, c_col = get_centroid(cone, width, height)
+            pixel_area = cv2.contourArea(cone)
 
             image_depth = scale * depth_image[c_row, c_col]
-
-            pixel_area = cv2.contourArea(cone)
             actual_area = get_image_area_cm2(pixel_area, fov, image_depth, c_row, c_col)
-            # round(pixel_area * scale * scale * 100 * 100 * 2)
 
-            # put_text_with_defaults(color_image, '(%s,%s)' % (cx, cy), location)
-            line1 = (c_row - 20, c_col - 20)
-            line2 = (c_row, c_col)
-
-            if min_area_cm2 < actual_area < max_area_cm2 and\
-                    .5 * height / 2  < c_row < 1.5 * height / 2 and\
-                    .5 * width / 2  < c_col < 1.5 * width / 2:
-                put_text_with_defaults(color_image, 'aa:(%s)' % actual_area, line1, color=cv2_color_bgr_black,
-                                       font_scale=0.3)
-                put_text_with_defaults(depth_colormap, 'aa:(%s)' % actual_area, line1, color=cv2_color_bgr_white,
-                                       font_scale=0.3)
-                put_text_with_defaults(depth_colormap, 'pa:(%s)' % pixel_area, line2, color=cv2_color_bgr_white,
-                                       font_scale=0.3)
-
-                cv2.drawContours(color_image, [cone], 0, (255, 255, 255), 2)
-                cv2.drawContours(depth_colormap, [cone], 0, (255, 255, 255), 2)
+            skipchecks = False
+            if skipchecks or (min_area_cm2 < actual_area < max_area_cm2 and \
+                              0.5 * height / 2 < c_row < 1.5 * height / 2 and \
+                              0.5 * width / 2 < c_col < 1.5 * width / 2):
+                imprint_value(c_row, c_col, color_image, 'aa', actual_area, 1)
+                imprint_value(c_row, c_col, depth_colormap, 'aa', actual_area, 1)
+                imprint_value(c_row, c_col, depth_colormap, 'pa', pixel_area, 2)
+                imprint_cone(cone, color_image)
+                imprint_cone(cone, depth_colormap)
         # Stack both images horizontally
         images = np.hstack((color_image, depth_colormap))
 

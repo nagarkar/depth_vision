@@ -1,8 +1,8 @@
+import math
 import os
 import time
+
 import cv2
-import pyrealsense2 as rs
-import math
 
 cv2_color_bgr_red = (0, 0, 255)
 cv2_color_bgr_white = (255, 255, 255)
@@ -34,10 +34,14 @@ def create_dirs(dirpath):
         os.makedirs(img_output_dir)
 
 
-def get_centroid(contour):
+def get_centroid(contour, width=None, height=None):
     moments = cv2.moments(contour, False)
     cx = int(moments["m10"] / moments["m00"])
     cy = int(moments["m01"] / moments["m00"])
+    if width is not None:
+        cy = min(cy, width - 1)
+    if height is not None:
+        cx = min(cx, height - 1)
     return cx, cy
 
 

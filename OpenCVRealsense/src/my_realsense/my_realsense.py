@@ -1,14 +1,16 @@
 # API How to: https://github.com/IntelRealSense/librealsense/wiki/API-How-To
-
-import pyrealsense2 as rs
-import numpy as np
-import traceback
+import json
+import os
 import time
+import traceback
+
+import numpy as np
+import pyrealsense2 as rs
 
 from cone_detection.cone_detection import generate_canny, get_cones
 
 
-def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, json_str=None):
+def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, preset_file=None):
     try:
         pipeline = rs.pipeline()
         config = rs.config()
@@ -16,16 +18,12 @@ def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, json_str=
         config.enable_stream(rs.stream.color, width, height, rs.format.bgr8, fps)
         profile = pipeline.start(config)
         device = profile.get_device()  # type: rs.device
-        depth_sensor = device.first_depth_sensor()  # type: rs.depth_sensor
-        color_sensor = device.first_roi_sensor()  # type: rs.roi_sensor
+
+        # Note: Depth and Color sensor options are shared, so setting them on one sets them on both
+        # depth_sensor = device.first_depth_sensor()  # type: rs.depth_sensor
         # set_high_density_mode(depth_sensor)
-        # set_high_density_mode(color_sensor)
-        # depth_sensor.set_option(rs.option.enable_auto_exposure, 1)
-        # color_sensor.set_option(rs.option.enable_auto_exposure, 1)
-        # depth_sensor.set_option(rs.option.enable_auto_white_balance, 1)
-        # color_sensor.set_option(rs.option.enable_auto_white_balance, 1)
-        # depth_sensor.set_option(rs.option.frames_queue_size, 1)
-        # color_sensor.set_option(rs.option.frames_queue_size, 1)
+        # depth_sensor.set_option(rs.option.exposure, 66000)
+        # depth_sensor.set_option(rs.option.frames_queue_size, 2)
     except:
         print('exception in start_pipeline(), before starting pipeline')
         traceback.print_exc()
@@ -36,12 +34,8 @@ def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, json_str=
         if advanced_mode:
             dev = find_device_that_supports_advanced_mode()
             if dev is not None:
-                enable_advanced_mode(dev)
-                profile = pipeline.get_active_profile()  # type: rs.pipeline_profile
-                device = profile.get_device()  # type: rs.device
-                depth_sensor = device.first_depth_sensor()  # type: rs.depth_sensor
-                set_high_density_mode(depth_sensor)
-
+                enable_advanced_mode(dev, preset_file)
+        print_option_data(pipeline.get_active_profile())
         return pipeline
     except:
         print('exception in start_pipeline()')
@@ -50,7 +44,7 @@ def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, json_str=
         return False
 
 
-def get_option_data(profile):
+def print_option_data(profile):
     device = profile.get_device()  # type: rs.device
     depth_sensor = device.first_depth_sensor()  # type: rs.depth_sensor
     color_sensor = device.first_roi_sensor()  # type: rs.roi_sensor
@@ -148,7 +142,20 @@ def get_depth_scale(pipeline):
     return get_depth_sensor(pipeline).get_depth_scale()
 
 
-def enable_advanced_mode(dev):
+def print_advanced_mode_settings(adv_mode):
+    json_str = adv_mode.serialize_json()
+    parsed = json.loads(json_str)
+    print(json.dumps(parsed, indent=4, sort_keys=True))
+
+
+def get_advanced_mode_preset_json(preset_file):
+    with open(os.path.join('', preset_file)) as f:
+        data = json.load(f)
+        data = json.dumps(data)
+    return data
+
+
+def enable_advanced_mode(dev, preset_file=None):
     adv_mode = rs.rs400_advanced_mode(dev)
     print("Advanced mode is", "enabled" if adv_mode.is_enabled() else "disabled")
     while not adv_mode.is_enabled():
@@ -161,6 +168,12 @@ def enable_advanced_mode(dev):
         dev = find_device_that_supports_advanced_mode()
         adv_mode = rs.rs400_advanced_mode(dev)
         print("Advanced mode is", "enabled" if adv_mode.is_enabled() else "disabled")
+
+    if preset_file is not None:
+        config = get_advanced_mode_preset_json(preset_file)
+        adv_mode.load_json(config)
+
+    print_advanced_mode_settings(adv_mode)
 
 
 def stop_pipeline(rs_pipeline):
@@ -210,6 +223,7 @@ def find_device_that_supports_advanced_mode():
     return None
 
 
+# Deprecated and should be unused. Use the preset json file instead.
 def set_high_density_mode(sensor):
     _range = sensor.get_option_range(rs.option.visual_preset)  # type: rs.option_range
     for i in np.arange(_range.min, _range.max, _range.step):

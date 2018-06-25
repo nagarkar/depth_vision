@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b354417d-2e75-4c06-aac4-3d79ce5928cc" name="Default" comment="" />
+    <list default="true" id="b354417d-2e75-4c06-aac4-3d79ce5928cc" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/configurations/HighDensityPreset.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/configurations/HighResHighAccuracyPreset.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/configurations/Readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scratch/with_clahe.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/scratch/with_shadow_removal.py" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/images/15.png" afterPath="$PROJECT_DIR$/images/15.png" />
+      <change beforePath="$PROJECT_DIR$/scratch/opencv_viewer_example.py" afterPath="$PROJECT_DIR$/scratch/opencv_viewer_example.py" />
+      <change beforePath="$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py" afterPath="$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py" />
+      <change beforePath="$PROJECT_DIR$/src/cone_detection/cone_detection.py" afterPath="$PROJECT_DIR$/src/cone_detection/cone_detection.py" />
+      <change beforePath="$PROJECT_DIR$/src/cone_detection/utilities.py" afterPath="$PROJECT_DIR$/src/cone_detection/utilities.py" />
+      <change beforePath="$PROJECT_DIR$/src/my_realsense/my_realsense.py" afterPath="$PROJECT_DIR$/src/my_realsense/my_realsense.py" />
+      <change beforePath="$PROJECT_DIR$/test/realsense_basic_test.py" afterPath="$PROJECT_DIR$/test/realsense_basic_test.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,45 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="realsense_video_test_mp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test_mp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="my_realsense.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/my_realsense/my_realsense.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="221" column="28" lean-forward="false" selection-start-line="221" selection-start-column="28" selection-end-line="221" selection-end-column="28" />
-              <folding>
-                <element signature="e#78#103#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cone_detection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cone_detection/cone_detection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="122" column="5" lean-forward="false" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+            <state relative-caret-position="247">
+              <caret line="235" column="34" lean-forward="true" selection-start-line="235" selection-start-column="34" selection-end-line="235" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="context.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/context.py">
+      <file leaf-file-name="opencv_viewer_example_with_cone_detect.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+            <state relative-caret-position="137">
+              <caret line="54" column="31" lean-forward="false" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realsense_video_test2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,65 +60,73 @@
       <file leaf-file-name="opencv_viewer_example.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#273#298#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opencv_viewer_example_with_cone_detect.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding>
-                <element signature="e#273#298#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cone_detection_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/cone_detection_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+            <state relative-caret-position="-136">
+              <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utilities_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/utilities_test.py">
+      <file leaf-file-name="with_clahe.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scratch/with_clahe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="single_cone_detection_test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/single_cone_detection_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="realsense_basic_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/realsense_basic_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+            <state relative-caret-position="242">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
-                <element signature="e#324#363#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="with_shadow_removal.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scratch/with_shadow_removal.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyplot.py" pinned="false" current-in-tab="false">
+        <entry file="file://E:/software/anaconda3/envs/magellan/Lib/site-packages/matplotlib/pyplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="3184" column="4" lean-forward="false" selection-start-line="3184" selection-start-column="4" selection-end-line="3184" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cone_detection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cone_detection/cone_detection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fuse_gtest_files.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/source/repos/googletest/googletest/scripts/fuse_gtest_files.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,13 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>start_pipeline</find>
-      <find>frames_processed</find>
-      <find>initializing</find>
-      <find>filters_on</find>
-      <find>video_out</find>
-      <find>frame_q.put</find>
-      <find>frames_q.put</find>
       <find>depth_frame</find>
       <find>process</find>
       <find>get_filters</find>
@@ -162,6 +165,13 @@
       <find>started</find>
       <find>detect</find>
       <find>fov</find>
+      <find>json</find>
+      <find>high_density</find>
+      <find>set_hi</find>
+      <find>cones</find>
+      <find>list_traffic_cones</find>
+      <find>threshold</find>
+      <find>orig_bgr</find>
     </findStrings>
     <replaceStrings>
       <replace>img_canny</replace>
@@ -175,6 +185,12 @@
       <replace>imshow_next</replace>
       <replace>start_pipeline</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\chinm_000\.PyCharmCE2017.3\system\python_stubs\823782204\pyrealsense2</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -199,15 +215,18 @@
         <option value="$PROJECT_DIR$/test/realsense_video_test_mp.py" />
         <option value="$PROJECT_DIR$/test/cone_detection_test.py" />
         <option value="$PROJECT_DIR$/scratch/single_cone_detection_test.py" />
-        <option value="$PROJECT_DIR$/src/cone_detection/utilities.py" />
         <option value="$PROJECT_DIR$/scratch/realsense_basic_test.py" />
         <option value="$PROJECT_DIR$/test/realsense_basic_test.py" />
-        <option value="$PROJECT_DIR$/src/my_realsense/my_realsense.py" />
         <option value="$PROJECT_DIR$/scratch/realsense_video_test_mp.py" />
-        <option value="$PROJECT_DIR$/scratch/opencv_viewer_example.py" />
-        <option value="$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py" />
-        <option value="$PROJECT_DIR$/src/cone_detection/cone_detection.py" />
         <option value="$PROJECT_DIR$/test/single_cone_detection_test.py" />
+        <option value="$PROJECT_DIR$/scratch/opencv_viewer_example.py" />
+        <option value="$PROJECT_DIR$/src/my_realsense/my_realsense.py" />
+        <option value="$PROJECT_DIR$/src/cone_detection/utilities.py" />
+        <option value="$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py" />
+        <option value="$PROJECT_DIR$/scratch/histogram_equalization.py" />
+        <option value="$PROJECT_DIR$/scratch/with_shadow_removal.py" />
+        <option value="$PROJECT_DIR$/src/cone_detection/cone_detection.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -216,6 +235,9 @@
     <option name="y" value="6" />
     <option name="width" value="1893" />
     <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -232,12 +254,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
               <item name="OpenCVRealsense" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OpenCVRealsense" type="462c0819:PsiDirectoryNode" />
+              <item name="configurations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
@@ -275,12 +303,22 @@
               <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
+            <path>
+              <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5 (opencv_viewer_example.py) &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="OpenCVRealsense" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5 (opencv_viewer_example.py) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="823782204" type="70582d5e:PySkeletonsNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,7 +352,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection">
+  <component name="RunManager" selected="Python.fuse_gtest_files">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -330,6 +368,25 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="fuse_gtest_files" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
+      </envs>
+      <option name="SDK_HOME" value="E:\software\anaconda3\envs\magellan\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/source/repos/googletest/googletest/scripts" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="OpenCVRealsense" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/source/repos/googletest/googletest/scripts/fuse_gtest_files.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
@@ -370,7 +427,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="realsense_video_test_mp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="realsense_video_test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -382,7 +439,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="OpenCVRealsense" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scratch/realsense_video_test_mp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scratch/realsense_video_test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -420,21 +477,6 @@
         <array />
       </myRunOnlyEnvs>
       <module name="OpenCVRealsense" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="E:\software\anaconda3\envs\magellan\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="OpenCVRealsense" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Twisted Trial">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -480,48 +522,6 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="OpenCVRealsense" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;cone_detection_test.TestConeDetection.test_basic_cone_detection&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="OpenCVRealsense" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests in cone_detection_test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="OpenCVRealsense" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/cone_detection_test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -540,21 +540,64 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
     </configuration>
+    <configuration name="Unittests for scratch.with_clahe.TestHistogramEqualization.test_basic_cone_detection" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scratch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="OpenCVRealsense" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;scratch.with_clahe.TestHistogramEqualization.test_basic_cone_detection&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scratch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="OpenCVRealsense" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;with_shadow_removal.TestShadowRemoval.test_basic_cone_detection&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="E:\software\anaconda3\envs\magellan\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="OpenCVRealsense" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.realsense_basic_test" />
-      <item index="1" class="java.lang.String" itemvalue="Python.realsense_video_test_mp" />
-      <item index="2" class="java.lang.String" itemvalue="Python.opencv_viewer_example_with_cone_detect" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in cone_detection_test.py" />
-      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" />
+      <item index="1" class="java.lang.String" itemvalue="Python.opencv_viewer_example_with_cone_detect" />
+      <item index="2" class="java.lang.String" itemvalue="Python.realsense_video_test2" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for scratch.with_clahe.TestHistogramEqualization.test_basic_cone_detection" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" />
+      <item index="5" class="java.lang.String" itemvalue="Python.fuse_gtest_files" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" />
-        <item index="2" class="java.lang.String" itemvalue="Python.opencv_viewer_example_with_cone_detect" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in cone_detection_test.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python.realsense_video_test_mp" />
+        <item index="0" class="java.lang.String" itemvalue="Python.fuse_gtest_files" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for scratch.with_clahe.TestHistogramEqualization.test_basic_cone_detection" />
+        <item index="3" class="java.lang.String" itemvalue="Python.opencv_viewer_example_with_cone_detect" />
+        <item index="4" class="java.lang.String" itemvalue="Python.realsense_video_test2" />
       </list>
     </recent_temporary>
   </component>
@@ -575,35 +618,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_cone_detection_test_TestConeDetection_test_basic_cone_detection - 2018.06.23 at 00h 48m 51s.xml">
-      <configuration name="Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 01m 52s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cone_detection_test_TestConeDetection_test_basic_cone_detection - 2018.06.23 at 01h 09m 37s.xml">
-      <configuration name="Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 14m 08s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cone_detection_test_TestConeDetection_test_basic_cone_detection - 2018.06.23 at 01h 10m 20s.xml">
-      <configuration name="Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 15m 53s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cone_detection_test_TestConeDetection_test_basic_cone_detection - 2018.06.23 at 01h 11m 39s.xml">
-      <configuration name="Unittests for cone_detection_test.TestConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 16m 45s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_realsense_basic_test_RealsenseBasicTests_test_get_option_data - 2018.06.23 at 00h 15m 01s.xml">
-      <configuration name="Unittests for realsense_basic_test.RealsenseBasicTests.test_get_option_data" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 17m 05s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_single_cone_detection_test_TestSingleConeDetection_test_basic_cone_detection - 2018.06.23 at 00h 50m 19s.xml">
-      <configuration name="Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 17m 55s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_single_cone_detection_test_TestSingleConeDetection_test_basic_cone_detection - 2018.06.23 at 00h 57m 06s.xml">
-      <configuration name="Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 18m 36s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_single_cone_detection_test_TestSingleConeDetection_test_basic_cone_detection - 2018.06.23 at 00h 58m 14s.xml">
-      <configuration name="Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 19m 20s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_single_cone_detection_test_TestSingleConeDetection_test_basic_cone_detection - 2018.06.23 at 09h 59m 25s.xml">
-      <configuration name="Unittests for single_cone_detection_test.TestSingleConeDetection.test_basic_cone_detection" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 17h 21m 33s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_cone_detection_test_py - 2018.06.23 at 00h 49m 02s.xml">
-      <configuration name="Unittests in cone_detection_test.py" configurationId="tests" />
+    <history-entry file="Unittests_for_with_shadow_removal_TestShadowRemoval_test_basic_cone_detection - 2018.06.23 at 19h 50m 05s.xml">
+      <configuration name="Unittests for with_shadow_removal.TestShadowRemoval.test_basic_cone_detection" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="2">
@@ -617,17 +660,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13632782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13632782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31661093" sideWeight="0.46792454" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.49595687" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31661093" sideWeight="0.464933" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277592" sideWeight="0.49448386" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3376932" sideWeight="0.53207546" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277592" sideWeight="0.5055162" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -673,11 +715,6 @@
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/cone_detection/cone_detection.py</url>
-          <line>218</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scratch/todelete/realsense_video_test_mt.py</url>
           <line>107</line>
           <option name="timeStamp" value="59" />
@@ -703,27 +740,59 @@
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/my_realsense/my_realsense.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test/realsense_basic_test.py</url>
           <line>24</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/my_realsense/my_realsense.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="102" />
+          <url>file://$PROJECT_DIR$/scratch/with_clahe.py</url>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scratch/with_clahe.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scratch/with_shadow_removal.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/cone_detection/cone_detection.py</url>
+          <line>213</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/cone_detection/cone_detection.py</url>
+          <line>194</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/cone_detection/cone_detection.py</url>
+          <line>210</line>
+          <option name="timeStamp" value="126" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="103" />
+      <option name="time" value="127" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="cones[1] is None" language="Python" />
+        <watch expression="area" language="Python" />
+      </configuration>
+      <configuration name="PythonConfigurationType">
+        <watch expression="depth_image[c_row, c_col]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>depth_image[c_row, c_col]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>list_traffic_cones[0]</expression-string>
         <language-id>Python</language-id>
@@ -748,12 +817,34 @@
     </expressions>
     <expressions id="breakpointCondition">
       <expression>
+        <expression-string>contour is None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>i == 74</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>i == 59</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>area</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cones[1] is None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cones[1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -812,76 +903,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/depth_sensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/composite_frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="31" column="78" lean-forward="false" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/depth_frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/pipeline_profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="297" column="4" lean-forward="false" selection-start-line="297" selection-start-column="4" selection-end-line="297" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/realsense_helper_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/intrinsics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/software/anaconda3/envs/magellan/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="73" column="4" lean-forward="false" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="5724" column="4" lean-forward="false" selection-start-line="5724" selection-start-column="4" selection-end-line="5724" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/software/anaconda3/envs/magellan/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -974,16 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scratch/todelete/test_mp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -999,14 +1010,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/software/anaconda3/envs/magellan/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="671" column="8" lean-forward="false" selection-start-line="671" selection-start-column="8" selection-end-line="671" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scratch/cone_detection_experiments.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1018,7 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,14 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cone_detection/utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,6 +1049,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="47" lean-forward="false" selection-start-line="58" selection-start-column="3" selection-end-line="99" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,7 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="75" lean-forward="false" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
           <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,27 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#273#298#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test_mp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1146,60 +1115,172 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="e#273#298#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/my_realsense/my_realsense.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="221" column="28" lean-forward="false" selection-start-line="221" selection-start-column="28" selection-end-line="221" selection-end-column="28" />
-          <folding>
-            <element signature="e#78#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cone_detection/cone_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="122" column="5" lean-forward="false" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/realsense_basic_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="867">
           <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding>
-            <element signature="e#324#363#0" expanded="true" />
+            <element signature="e#324#363#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/depth_sensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scratch/opencv_viewer_example_with_cone_detect.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/pyrealsense2/rs400_advanced_mode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/anaconda3/envs/magellan/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4097">
+          <caret line="242" column="4" lean-forward="false" selection-start-line="242" selection-start-column="4" selection-end-line="242" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test_mp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/cone_detection_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        <state relative-caret-position="289">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/single_cone_detection_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cone_detection/utilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/my_realsense/my_realsense.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="235" column="34" lean-forward="true" selection-start-line="235" selection-start-column="34" selection-end-line="235" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example_with_cone_detect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="54" column="31" lean-forward="false" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/anaconda3/envs/magellan/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="3184" column="4" lean-forward="false" selection-start-line="3184" selection-start-column="4" selection-end-line="3184" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/with_clahe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.3/system/python_stubs/823782204/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="3105" column="4" lean-forward="false" selection-start-line="3105" selection-start-column="4" selection-end-line="3105" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/opencv_viewer_example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/realsense_video_test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/anaconda3/envs/magellan/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="604" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/with_shadow_removal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cone_detection/cone_detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/source/repos/googletest/googletest/scripts/fuse_gtest_files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
           <folding />
         </state>
       </provider>
