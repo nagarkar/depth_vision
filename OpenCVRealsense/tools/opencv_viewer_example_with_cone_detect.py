@@ -11,8 +11,8 @@ width = 640
 height = 480
 
 # Min and max areas based on a test cone of height 20cm and width 10 cm.
-min_area_cm2 = 30
-max_area_cm2 = 150
+min_area_cm2 = 130
+max_area_cm2 = 1000
 
 # Configure depth and color streams
 # pipeline = start_pipeline(advanced_mode=True, width=width, height=height, fps=fps, preset_file='../configurations/HighResHighAccuracyPreset.json')
@@ -51,20 +51,29 @@ try:
         list_of_cones = detect_once(color_image)
 
         for cone in list_of_cones:
+
             c_row, c_col = get_centroid(cone, width, height)
             pixel_area = cv2.contourArea(cone)
 
             image_depth = scale * depth_image[c_row, c_col]
             actual_area = get_image_area_cm2(pixel_area, fov, image_depth, c_row, c_col)
 
+            imprint_value(c_row, c_col, color_image, 'sc', scale, 1)
+            imprint_value(c_row, c_col, color_image, 'aa', actual_area, 2)
+            imprint_value(c_row, c_col, color_image, 'pa', pixel_area, 3)
+            imprint_value(c_row, c_col, color_image, 'id', image_depth, 4)
+            imprint_value(c_row, c_col, color_image, 'cl', c_col, 5)
+            imprint_value(c_row, c_col, color_image, 'rw', c_row, 6)
+            imprint_value(c_row, c_col, color_image, 'rd', depth_image[c_row, c_col], 7)
+            imprint_cone(cone, color_image)
+
             skipchecks = False
             if skipchecks or (min_area_cm2 < actual_area < max_area_cm2 and \
                               0.5 * height / 2 < c_row < 1.5 * height / 2 and \
                               0.5 * width / 2 < c_col < 1.5 * width / 2):
-                imprint_value(c_row, c_col, color_image, 'aa', actual_area, 1)
                 imprint_value(c_row, c_col, depth_colormap, 'aa', actual_area, 1)
                 imprint_value(c_row, c_col, depth_colormap, 'pa', pixel_area, 2)
-                imprint_cone(cone, color_image)
+                imprint_value(c_row, c_col, depth_colormap, 'aa', actual_area, 3)
                 imprint_cone(cone, depth_colormap)
         # Stack both images horizontally
         images = np.hstack((color_image, depth_colormap))

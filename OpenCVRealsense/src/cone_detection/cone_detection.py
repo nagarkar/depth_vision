@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import numpy as np
 
 from cone_detection.utilities import *
@@ -10,9 +9,9 @@ def copy_blank(img):
 
 
 # Each contour is an array of boundary points, each point enclosed in a redundant 1-size array.
-# contour[0][0] is the first bounary point.
-# contour[1][0] is the second bounary point.
-# contour[1][0][1] is the 'y' coordinate of the second bounary point.
+# contour[0][0] is the first boundary point.
+# contour[1][0] is the second boundary point.
+# contour[1][0][1] is the 'y' coordinate of the second boundary point.
 # Convex Hull passed in is a contour.
 def hull_pointing_up(hull, min_aspect_ratio=0.8, max_top_bottom_width_ratio=0.75):
     x, y, w, h = cv2.boundingRect(hull)  # (x,y): top-left coordinate
@@ -62,39 +61,6 @@ def hull_pointing_up(hull, min_aspect_ratio=0.8, max_top_bottom_width_ratio=0.75
 
     return True, points_above_center, points_below_center
 
-
-def imshow_next(img, titleText):
-    if imshow_next.show is False:
-        return
-    if imshow_next.ax_show is True:
-        ax = imshow_next.ax;
-        imshow_next.imgIdx = imshow_next.imgIdx + 1
-        idx = imshow_next.imgIdx
-
-        ax[idx].imshow(img)
-        ax[idx].set_title(titleText)
-        # title.set_fontsize(100)
-    else:
-        fig, ax = plt.subplots(figsize=(100, 100))
-        ax.imshow(img, interpolation='nearest')
-        ax.set_title(titleText)
-        # plt.show();
-
-
-def show_images(show, ax_show=False):
-    imshow_next.imgIdx = -1
-    imshow_next.show = show
-    imshow_next.ax_show = ax_show
-    if ax_show:
-        imshow_next.fig, imshow_next.axes = plt.subplots(ncols=2, nrows=4, figsize=(10, 5))
-        imshow_next.ax = imshow_next.axes.ravel()
-    else:
-        plt.clf()
-        plt.cla()
-        plt.close()
-    return show
-
-
 # Conda cheat sheet: https://conda.io/docs/_downloads/conda-cheatsheet.pdf
 # OpenCV 3.4 Docs: https://goo.gl/TmaFWS
 #
@@ -102,11 +68,9 @@ def show_images(show, ax_show=False):
 
 # print('Load and show an image')
 
-# Assume input image is in BGR format
-def generate_canny(img, do_show_images=False, do_thresholding=True, do_erode=2, do_dilate=2, do_blur=11):
 
-    start_time = current_milli_time()
-    show_images(do_show_images, False)
+# Assume input image is in BGR format
+def generate_canny(img, do_thresholding=True, do_erode=2, do_dilate=2, do_blur=11):
 
     filtered_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # combine low range red thresh and high range red thresh
@@ -148,24 +112,11 @@ def generate_canny(img, do_show_images=False, do_thresholding=True, do_erode=2, 
     # Fix spacing, make images look good
     # plt.tight_layout()
 
-    if do_show_images:
-        end_time = current_milli_time()
-        print("End  Time: %s" % end_time)
-        print("Elapsed: %sms" % (end_time - start_time))
-
     return filtered_img
 
 
-def get_cones(img_canny, do_polyapprox=True, base_img=None, do_show_images=False, generate_images=False,
-              check_countour_size=True, check_pixel_area=True):
+def get_cones(img_canny, do_polyapprox=True, base_img=None, check_countour_size=True, check_pixel_area=True):
     start_time = current_milli_time()
-    if generate_images:
-        show_images(do_show_images)
-        img_contours = copy_blank(base_img)
-        img_all_convex_hulls = copy_blank(base_img)
-        img_all_convex_3to10_hulls = copy_blank(base_img)
-        img_traffic_cones = copy_blank(base_img)
-        img_traffic_cones_overlaps_removed = copy_blank(base_img)
 
     # Find contours: https://goo.gl/FkomSt
     temp_img, contours, hierarchy = cv2.findContours(img_canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -184,12 +135,8 @@ def get_cones(img_canny, do_polyapprox=True, base_img=None, do_show_images=False
         # epsilon = 0.1 * cv2.arcLength(cnt, True)
         if do_polyapprox:
             contour = cv2.approxPolyDP(contour, approx_poly_dp_epsilon, True)
-            if generate_images:
-                cv2.drawContours(img_contours, [contour], 0, (255, 255, 100), 3)
 
         contour = cv2.convexHull(contour)
-        if generate_images:
-            cv2.drawContours(img_all_convex_hulls, [contour], 0, (0, 255, 255), 3)
 
         area = cv2.contourArea(contour, False)
         list_of_areas.append(area)
@@ -202,30 +149,19 @@ def get_cones(img_canny, do_polyapprox=True, base_img=None, do_show_images=False
 
         # if convex hull has at least 3 and less than 10 points,
         # size returns double of actual points (2 coordinates counted for each point)
-        if generate_images:
-            cv2.drawContours(img_all_convex_3to10_hulls, [contour], 0, (0, 255, 255), 3)
 
         pointing_up, _tmp, _tmp2 = hull_pointing_up(contour)
         # (x, y), (MA, ma), angle = cv2.fitEllipse(hull)
         if not pointing_up:  # and (angle < 10):
             continue
-        # if (1 == 1):
 
-        if generate_images:
-            img_to_draw_on = img_traffic_cones
-        else:
-            img_to_draw_on = img_canny
+        img_to_draw_on = img_canny
 
         cv2.drawContours(img_to_draw_on, [contour], 0, (255, 255, 255), 2)
 
         if contour is not None:
             list_traffic_cones.append(contour)
 
-    if generate_images:
-        imshow_next(img_contours, "Contours")
-        imshow_next(img_all_convex_hulls, "Hulls")
-        imshow_next(img_all_convex_3to10_hulls, "Hulls3To10")
-        imshow_next(img_traffic_cones, "TrafficCones")
 
     # list_traffic_conesWithOverlapsRemoved = removeInnerOverlappingCones(list_traffic_cones)
 
@@ -234,17 +170,11 @@ def get_cones(img_canny, do_polyapprox=True, base_img=None, do_show_images=False
     #    drawGreenDotAtConeCenter(trafficCone, img_traffic_cones_overlaps_removed)
 
     # Fix spacing, make images look good
-    if generate_images:
-        plt.tight_layout()
+    # if generate_images:
+    #     plt.tight_layout()
 
     end_time = current_milli_time()
-    if do_show_images:
-        print("Elapsed: %sms" % (end_time - start_time))
-
-    if generate_images:
-        return list_traffic_cones, img_traffic_cones
-    else:
-        return list_traffic_cones, None
+    return list_traffic_cones, None
 
 
 def imprint_cone(cone, image):
@@ -252,6 +182,6 @@ def imprint_cone(cone, image):
 
 
 def imprint_value(c_row, c_col, image, label, value, line_no):
-    line = (c_row - 20 * (line_no - 1), c_col - 20 * (line_no - 1))
-    put_text_with_defaults(image, '%s:(%s)' % (label, value), line, color=cv2_color_bgr_black,
+    line = (c_col - 20, c_row - 10 * (line_no - 1))
+    put_text_with_defaults(image, '%s:%8.3f' % (label, value), line, color=cv2_color_bgr_black,
                            font_scale=0.3)

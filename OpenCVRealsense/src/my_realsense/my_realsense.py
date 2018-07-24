@@ -10,12 +10,17 @@ import pyrealsense2 as rs
 from cone_detection.cone_detection import generate_canny, get_cones
 
 
-def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, preset_file=None):
+def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, preset_file=None, record_to_file=None,
+                   from_file=None):
     try:
         pipeline = rs.pipeline()
         config = rs.config()
         config.enable_stream(rs.stream.depth, width, height, rs.format.z16, fps)
         config.enable_stream(rs.stream.color, width, height, rs.format.bgr8, fps)
+        if record_to_file is not None:
+            config.enable_record_to_file(record_to_file)
+        elif from_file is not None:
+            config.enable_device_from_file(from_file)
         profile = pipeline.start(config)
         device = profile.get_device()  # type: rs.device
 
@@ -35,7 +40,6 @@ def start_pipeline(advanced_mode=False, fps=30, width=640, height=480, preset_fi
             dev = find_device_that_supports_advanced_mode()
             if dev is not None:
                 enable_advanced_mode(dev, preset_file)
-        print_option_data(pipeline.get_active_profile())
         return pipeline
     except:
         print('exception in start_pipeline()')
@@ -175,6 +179,8 @@ def enable_advanced_mode(dev, preset_file=None):
 
     print_advanced_mode_settings(adv_mode)
 
+
+### Safely stop. If the rs_pipeline is null, it is started first, then stopped.
 
 def stop_pipeline(rs_pipeline):
     if rs_pipeline is None:

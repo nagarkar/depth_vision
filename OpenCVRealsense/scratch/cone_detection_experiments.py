@@ -1,5 +1,3 @@
-import os
-
 from cone_detection.cone_detection import *
 
 img_input_dir = '../images'
@@ -8,7 +6,7 @@ img_output_dir = '../experiments'
 filename = "13.jpg"
 
 img = cv2.imread(os.path.join(img_input_dir, filename))
-img_canny = generate_canny(img, True)
+img_canny = generate_canny(img)
 cv2.imwrite(os.path.join(img_output_dir, 'canny_' + filename), img_canny)
 temp_img, contours, hierarchy = cv2.findContours(img_canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 

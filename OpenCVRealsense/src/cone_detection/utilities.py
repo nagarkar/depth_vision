@@ -42,7 +42,7 @@ def get_centroid(contour, width=None, height=None):
         cy = min(cy, width - 1)
     if height is not None:
         cx = min(cx, height - 1)
-    return cx, cy
+    return cy, cx
 
 
 @static_var("ratio_meter_to_px", None)
