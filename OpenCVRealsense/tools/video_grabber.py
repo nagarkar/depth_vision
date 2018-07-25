@@ -9,6 +9,7 @@ from my_realsense.my_realsense import *
 
 
 class VideoGrabberConfig:
+    advanced_mode = False
     record_to_file = "video.bag"
     preset_file = '../configurations/HighDensityPreset.json'
     capture_color = True
@@ -25,6 +26,7 @@ class VideoGrabberConfig:
 class VideoGrabber:
     video_grabber_config = None
     pipeline = None
+    recording_success = False
 
     def __init__(self, video_grabber_config: VideoGrabberConfig):
         self.video_grabber_config = video_grabber_config
@@ -32,14 +34,15 @@ class VideoGrabber:
         signal.signal(signal.SIGINT, self.handler)
 
     def start(self, timeout):
-        self.pipeline = start_pipeline(advanced_mode=True,
+        self.recording_success = False
+        self.pipeline = start_pipeline(advanced_mode=self.video_grabber_config.advanced_mode,
                                        width=self.video_grabber_config.width,
                                        height=self.video_grabber_config.height,
                                        fps=self.video_grabber_config.fps,
                                        preset_file=self.video_grabber_config.preset_file,
                                        record_to_file=self.video_grabber_config.record_to_file)
         if timeout is not None:
-            t = threading.Timer(timeout, self.stop, kwargs={'signum': None})
+            t = threading.Timer(timeout, self.stop, kwargs={'signum': 'RECORDING_NO_ERR'})
             t.start()
 
         while True:
@@ -48,10 +51,13 @@ class VideoGrabber:
             time.sleep(1)
 
     def stop(self, signum):
-        self.pipeline.stop()
+        if isinstance(self.pipeline, rs.pipeline):
+            self.pipeline.stop()
         self.pipeline = None
-        if signal is not None:
+        if signum is not None:
             print('Stop called as signal handler with signal %s' % signum)
+        if signum is 'RECORDING_NO_ERR':
+            self.recording_success = True
 
     def playback(self):
         playback_window_title_suffix = 'Streaming Loop (esc to cancel)'
@@ -59,7 +65,7 @@ class VideoGrabber:
         color_window = 'Color Frames ' + playback_window_title_suffix
         cv2.namedWindow(depth_window, cv2.WINDOW_AUTOSIZE)
         cv2.namedWindow(color_window, cv2.WINDOW_AUTOSIZE)
-        self.pipeline = start_pipeline(advanced_mode=True,
+        self.pipeline = start_pipeline(advanced_mode=self.video_grabber_config.advanced_mode,
                                        width=self.video_grabber_config.width,
                                        height=self.video_grabber_config.height,
                                        fps=self.video_grabber_config.fps,
@@ -76,7 +82,6 @@ class VideoGrabber:
                 continue
             depth_image = np.asanyarray(depth_frame.get_data())
             color_image = np.asanyarray(color_frame.get_data())
-            # images = np.hstack((color_image, depth_image))
 
             # Show images
             cv2.imshow(color_window, color_image)
@@ -95,7 +100,11 @@ if __name__ == '__main__':
     # Get output dir
     # output_dir = input("Output Directory:")
     config = VideoGrabberConfig("my_video.bag")
+    config.advanced_mode = True
     grabber = VideoGrabber(config)
     grabber.start(1)
 
-    grabber.playback()
+    if grabber.recording_success: 
+        grabber.playback()
+    else:
+        print("Skipping playback as recording failed")

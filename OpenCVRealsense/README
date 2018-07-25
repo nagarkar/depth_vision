@@ -1,0 +1,14 @@
+To run tools, you need to be root. We require python3, realsense2, and opencv2 to be installed.
+
+# Root shell
+sudo -s
+
+# start your virtual environment or conda env
+source /home/pi/bin/start_venv.sh
+
+# Assuming your realsense libraries are installed in /usr/local/lib
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib
+
+# Navigate to the tools directory
+cd ~/workspace/depth_vision/OpenCVRealSense/tools
+python video_grabber.py
